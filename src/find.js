@@ -1,7 +1,7 @@
 import Quad from "./quad.js";
 
 export default function(x, y, radius) {
-  var data,
+  var data = [],
       x0 = this._x0,
       y0 = this._y0,
       x1,
@@ -61,7 +61,11 @@ export default function(x, y, radius) {
         var d = Math.sqrt(radius = d2);
         x0 = x - d, y0 = y - d;
         x3 = x + d, y3 = y + d;
-        data = node.data;
+        data = [];
+        do {
+          data.push(node.data);
+          node = node.next;
+        } while (node);
       }
     }
   }
